@@ -1,0 +1,32 @@
+.main-header {
+  background-color: #82280e;
+  -moz-box-shadow: 2px 2px #720d0dc8;
+  -webkit-box-shadow: 2px 2px #720d0dc8;
+  box-shadow: 2px 2px #5f1e0b;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.header__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  padding-block: 1rem;
+  margin: auto;
+  color: white;
+}
+@media (max-width: 577px) {
+  .header__nav {
+    width: 100%;
+    padding-inline: 1.5rem;
+  }
+}
+@media (max-width: 392px) {
+  .header__nav {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}

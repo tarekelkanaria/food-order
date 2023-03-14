@@ -1,0 +1,46 @@
+.landing {
+  margin-top: 7.6rem;
+  height: 50vh;
+  overflow: hidden;
+}
+.landing img {
+  width: 110%;
+  height: calc(100% - 4rem);
+  object-fit: cover;
+  -o-transform: rotateZ(-5deg) translateY(-4rem) translateX(-2rem);
+  -ms-transform: rotateZ(-5deg) translateY(-4rem) translateX(-2rem);
+  -moz-transform: rotateZ(-5deg) translateY(-4rem) translateX(-2rem);
+  -webkit-transform: rotateZ(-5deg) translateY(-4rem) translateX(-2rem);
+  transform: rotateZ(-5deg) translateY(-4rem) translateX(-2rem);
+}
+.landing__content {
+  width: 70%;
+  max-width: 75rem;
+  padding: 2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background-color: rgb(44, 42, 42);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  color: white;
+  border-radius: 1.4rem;
+  box-shadow: 0px 2px 18px 10px rgba(0, 0, 0, 0.25),
+    0px -2px 18px 10px rgba(0, 0, 0, 0.25);
+}
+@media (max-width: 392px) {
+  .landing__content {
+    top: 75%;
+  }
+}
+
+.landing__content h1 {
+  margin-bottom: 2rem;
+}
+.landing__content p {
+  margin-bottom: 1.5rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+}

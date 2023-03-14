@@ -1,0 +1,25 @@
+.cart-icon {
+  padding: 1.5rem 4rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background: rgba(53, 33, 25, 0.5);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: 50rem;
+}
+.cart-icon h3 {
+  font-size: 1.6rem;
+}
+.cart-icon__shape {
+  font-size: 1.2em;
+}
+@media (max-width: 577px) {
+  .cart-icon {
+    padding: 1.5rem 2rem;
+    gap: 1rem;
+  }
+  .cart-icon h3 {
+    font-size: 1.4rem;
+  }
+}
