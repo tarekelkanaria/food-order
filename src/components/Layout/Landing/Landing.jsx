@@ -1,5 +1,6 @@
 import meals from "../../../assets/meals.jpg";
 import classes from "./Landing.module.css";
+
 const Landing = () => {
   return (
     <section>

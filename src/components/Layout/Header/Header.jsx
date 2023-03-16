@@ -1,11 +1,12 @@
 import CartIcon from "../../Cart/CartIcon/CartIcon";
 import classes from "./Header.module.css";
-const Header = () => {
+
+const Header = ({ onShowCart }) => {
   return (
     <header className={classes["main-header"]}>
       <nav className={classes["header__nav"]}>
         <h2>ReactMeals</h2>
-        <CartIcon />
+        <CartIcon onShowCart={onShowCart} />
       </nav>
     </header>
   );

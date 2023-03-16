@@ -1,0 +1,35 @@
+.item-feild {
+  width: 25%;
+  padding: 0.5rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+@media (max-width: 767px) {
+  .item-feild {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+}
+.itemsList {
+  max-height: 70vh;
+  overflow: auto;
+}
+.cart-actions {
+  width: 50%;
+  text-align: right;
+  margin-inline: auto 0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 2rem;
+}
+.cart-wrapper {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}

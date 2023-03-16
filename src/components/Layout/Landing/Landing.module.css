@@ -1,6 +1,6 @@
 .landing {
   margin-top: 7.6rem;
-  height: 50vh;
+  height: 45vh;
   overflow: hidden;
 }
 .landing img {
@@ -11,22 +11,28 @@
   -ms-transform: rotateZ(-5deg) translateY(-4rem) translateX(-2rem);
   -moz-transform: rotateZ(-5deg) translateY(-4rem) translateX(-2rem);
   -webkit-transform: rotateZ(-5deg) translateY(-4rem) translateX(-2rem);
-  transform: rotateZ(-5deg) translateY(-4rem) translateX(-2rem);
+  transform: rotateZ(-3deg) translateY(-4rem) translateX(-2rem);
 }
 .landing__content {
   width: 70%;
   max-width: 75rem;
   padding: 2rem;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  /* position: absolute; */
+  /* top: 50%; */
+  /* left: 50%; */
+  /* transform: translate(-50%, -50%); */
   text-align: center;
+  margin-top: -20rem;
+  margin-inline: auto;
   background-color: rgb(44, 42, 42);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   color: white;
   border-radius: 1.4rem;
+  -moz-box-shadow: 0px 2px 18px 10px rgba(0, 0, 0, 0.25),
+    0px -2px 18px 10px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0px 2px 18px 10px rgba(0, 0, 0, 0.25),
+    0px -2px 18px 10px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 2px 18px 10px rgba(0, 0, 0, 0.25),
     0px -2px 18px 10px rgba(0, 0, 0, 0.25);
 }

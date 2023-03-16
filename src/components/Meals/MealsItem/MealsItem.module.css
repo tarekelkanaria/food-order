@@ -1,0 +1,31 @@
+.meals-item p {
+  font-style: italic;
+  font-size: 1.6rem;
+}
+.meals-item p::first-letter {
+  text-transform: uppercase;
+}
+
+.meals-item__action {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+.meals-item__action label {
+  font-weight: bold;
+}
+.meals-item__action input {
+  margin-left: 2rem;
+  width: 5em;
+  outline: none;
+  border: 2px solid #ddd;
+  padding: 0.5rem;
+  vertical-align: middle;
+}
+.error {
+  color: red;
+  font-style: italic;
+  font-size: 1.4rem;
+}
