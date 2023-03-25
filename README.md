@@ -1,4 +1,7 @@
-# Food Order App
+# Food Order App   
+
+## Demo Preview   
+[The app link](https://food-order-elkanaria.netlify.app/)
 
 ## Author
 
