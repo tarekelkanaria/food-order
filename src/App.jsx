@@ -4,6 +4,7 @@ import CartList from "./components/Cart/CartList/CartList";
 import Header from "./components/Layout/Header/Header";
 import Landing from "./components/Layout/Landing/Landing";
 import MealsList from "./components/Meals/MealsList/MealsList";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 function App() {

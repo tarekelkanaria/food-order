@@ -1,6 +1,7 @@
-# Food Order App   
+# Food Order App
 
-## Demo Preview   
+## Demo Preview
+
 [The app link](https://food-order-elkanaria.netlify.app/)
 
 ## Author
@@ -28,5 +29,7 @@ Runs the app in the development mode on your localhost.
 - React-hooks
 - React-icons
 - styled-components
+- Bootstrap
+- React-Bootstrap
 - css modules
 - nanoid
