@@ -1,35 +1,42 @@
-import { nanoid } from "nanoid";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import Container from "../../Shared/Container";
 import MealsItem from "../MealsItem/MealsItem";
-
-const meals = [
-  {
-    id: nanoid(),
-    title: "sushi",
-    description: "finest fish and veggies",
-    price: 22.99,
-  },
-  {
-    id: nanoid(),
-    title: "schnitzel",
-    description: "a german specialty",
-    price: 16.5,
-  },
-  {
-    id: nanoid(),
-    title: "barbecue burger",
-    description: "american, raw, meaty",
-    price: 12.99,
-  },
-  {
-    id: nanoid(),
-    title: "green bowl",
-    description: "healthy...and green...",
-    price: 18.99,
-  },
-];
+import classes from "./MealsList.module.css";
 
 const MealsList = () => {
+  const [meals, setMeals] = useState([]);
+  const [hasError, setHasError] = useState(false);
+  const [errText, setErrText] = useState("");
+
+  const extractData = (data) => {
+    const meals = [];
+    for (const item in data) {
+      meals.push({
+        id: item,
+        title: data[item].title,
+        description: data[item].description,
+        price: data[item].price,
+      });
+    }
+    return meals;
+  };
+
+  const getMeals = async () => {
+    try {
+      await axios
+        .get("https://meals-ae989-default-rtdb.firebaseio.com/meals.json")
+        .then((response) => setMeals(extractData(response.data)));
+    } catch (error) {
+      setHasError(true);
+      setErrText(`Something went wrong ${error.message}`);
+    }
+  };
+
+  useEffect(() => {
+    getMeals();
+  }, []);
+
   const mealsElements = meals.map((item) => (
     <MealsItem
       key={item.id}
@@ -43,6 +50,7 @@ const MealsList = () => {
   return (
     <Container>
       <ul>{mealsElements}</ul>
+      {hasError && <p className={classes.error}>{errText}</p>}
     </Container>
   );
 };
