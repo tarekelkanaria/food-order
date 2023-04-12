@@ -1,5 +1,5 @@
-import { useState } from "react";
 import MealsProvider from "./store/MealsProvider";
+import { useDisplayContext } from "./store/DisplayProvider";
 import CartList from "./components/Cart/CartList/CartList";
 import Header from "./components/Layout/Header/Header";
 import Landing from "./components/Layout/Landing/Landing";
@@ -8,17 +8,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 function App() {
-  const [displayCart, setDisplayCart] = useState(false);
-
-  const toggleDisplayCart = (e) => {
-    e.stopPropagation();
-    setDisplayCart((prevDisplay) => !prevDisplay);
-  };
+  const displayCTX = useDisplayContext();
 
   return (
     <MealsProvider>
-      {displayCart && <CartList onHideCart={toggleDisplayCart} />}
-      <Header onShowCart={toggleDisplayCart} />
+      {displayCTX.displayCart && <CartList />}
+      <Header />
       <main>
         <Landing />
         <MealsList />

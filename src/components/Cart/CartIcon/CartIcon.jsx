@@ -1,11 +1,14 @@
+import { useDisplayContext } from "../../../store/DisplayProvider";
 import { useMealsContext } from "../../../store/MealsProvider";
 import { useEffect, useState } from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import Button from "../../Shared/Button";
 import classes from "./CartIcon.module.css";
 
-const CartIcon = ({ onShowCart }) => {
+const CartIcon = () => {
   const [addToCart, setAddToCart] = useState(false);
+
+  const showCartCTX = useDisplayContext();
 
   const cartCTX = useMealsContext();
 
@@ -27,7 +30,7 @@ const CartIcon = ({ onShowCart }) => {
   return (
     <div
       className={`${classes["cart-icon"]} ${addToCart ? classes.bump : ""}`}
-      onClick={onShowCart}
+      onClick={showCartCTX.toggleDisplayCart}
     >
       <AiOutlineShoppingCart className={classes["cart-icon__shape"]} />
       <h3>Your Cart</h3>

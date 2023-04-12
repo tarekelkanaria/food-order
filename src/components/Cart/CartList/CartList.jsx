@@ -1,12 +1,15 @@
 import { createPortal } from "react-dom";
 import { useMealsContext } from "../../../store/MealsProvider";
+import { useDisplayContext } from "../../../store/DisplayProvider";
 import Modal from "../../Shared/Modal";
+import CheckOut from "../Checkout/Checkout";
 import Container from "../../Shared/Container";
 import ListItem from "../../Shared/ListItem";
 import Button from "../../Shared/Button";
 import classes from "./CartList.module.css";
 
-const CartList = ({ onHideCart }) => {
+const CartList = () => {
+  const cartVisabilityCTX = useDisplayContext();
   const cartItemCtx = useMealsContext();
 
   const hasItems = cartItemCtx.items.length > 0;
@@ -46,7 +49,7 @@ const CartList = ({ onHideCart }) => {
     <>
       {createPortal(
         <>
-          <Modal onClick={onHideCart} />
+          <Modal onClick={cartVisabilityCTX.toggleDisplayCart} />
           <div className={classes["cart-wrapper"]}>
             <Container cart modalContainer>
               <ul className={classes.itemsList}>
@@ -56,16 +59,25 @@ const CartList = ({ onHideCart }) => {
                   <p>${cartItemCtx.totalAmount.toFixed(2)}</p>
                 </ListItem>
               </ul>
-              <div className={classes["cart-actions"]}>
-                <Button cartClose onClick={onHideCart}>
-                  Close
-                </Button>
-                {hasItems && (
-                  <Button cartOrder onClick={() => console.log("Ordering ...")}>
-                    Order
+              {cartVisabilityCTX.displayCheckOut && <CheckOut />}
+              {!cartVisabilityCTX.displayCheckOut && (
+                <div className={classes["cart-actions"]}>
+                  <Button
+                    cartClose
+                    onClick={cartVisabilityCTX.toggleDisplayCart}
+                  >
+                    Close
                   </Button>
-                )}
-              </div>
+                  {hasItems && (
+                    <Button
+                      cartOrder
+                      onClick={cartVisabilityCTX.toggleDisplayCheckOut}
+                    >
+                      Order
+                    </Button>
+                  )}
+                </div>
+              )}
             </Container>
           </div>
         </>,

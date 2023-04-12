@@ -41,6 +41,9 @@ const Container = styled.section`
     css`
       position: relative;
       z-index: 3;
+      height: min(95%, content-height);
+      margin: auto;
+      overflow-y: auto;
     `};
 `;
 
