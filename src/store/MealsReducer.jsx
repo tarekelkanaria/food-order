@@ -41,6 +41,10 @@ const MealsReducer = (state, action) => {
     };
   }
 
+  if (action.type === "CLEAR") {
+    return { items: [], totalAmount: 0 };
+  }
+
   return { items: [], totalAmount: 0 };
 };
 

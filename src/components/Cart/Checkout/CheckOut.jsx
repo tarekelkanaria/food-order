@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import { Form as FormBS } from "react-bootstrap";
 import Button from "../../Shared/Button";
 
-const CheckOut = () => {
+const CheckOut = ({ onConfirm }) => {
   const checkOutVisabilityCTX = useDisplayContext();
 
   return (
@@ -12,19 +12,23 @@ const CheckOut = () => {
       initialValues={{ userName: "", street: "", postalCode: "", city: "" }}
       validationSchema={Yup.object({
         userName: Yup.string()
+          .trim()
           .min(3, "Must be at least 3 characters")
           .required("Required"),
         street: Yup.string()
+          .trim()
           .min(3, "Must be at least 3 characters")
           .required("Required"),
         postalCode: Yup.string()
-          .min(3, "Must be at least 3 characters")
+          .trim()
+          .length(5, "Postal Code must be 5 characters")
           .required("Required"),
         city: Yup.string()
+          .trim()
           .min(3, "Must be at least 3 characters")
           .required("Required"),
       })}
-      onSubmit={(values) => console.log(values)}
+      onSubmit={(values) => onConfirm(values)}
     >
       {(formik) => (
         <FormBS onSubmit={formik.handleSubmit}>

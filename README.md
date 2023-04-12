@@ -27,6 +27,8 @@ Runs the app in the development mode on your localhost.
 - React + vite for creation
 - React-dom
 - React-hooks
+- Formik
+- yup
 - React-icons
 - styled-components
 - Bootstrap

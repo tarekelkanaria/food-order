@@ -6,6 +6,7 @@ const MealsContext = createContext({
   totalAmount: 0,
   addItem: (item) => {},
   removeItem: (id) => {},
+  clearCart: () => {},
 });
 
 const MealsProvider = (props) => {
@@ -22,11 +23,16 @@ const MealsProvider = (props) => {
     dispatchMealsState({ type: "REMOVE", id: id });
   };
 
+  const clearCartHandler = () => {
+    dispatchMealsState({ type: "CLEAR" });
+  };
+
   const mealsContextState = {
     items: mealsState.items,
     totalAmount: mealsState.totalAmount,
     addItem: addItemHandler,
     removeItem: removeItemHandler,
+    clearCart: clearCartHandler,
   };
 
   return (
