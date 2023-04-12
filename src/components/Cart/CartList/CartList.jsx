@@ -45,6 +45,20 @@ const CartList = () => {
       </ListItem>
     );
   });
+
+  const modalActions = (
+    <div className={classes["cart-actions"]}>
+      <Button cartClose onClick={cartVisabilityCTX.toggleDisplayCart}>
+        Close
+      </Button>
+      {hasItems && (
+        <Button cartOrder onClick={cartVisabilityCTX.toggleDisplayCheckOut}>
+          Order
+        </Button>
+      )}
+    </div>
+  );
+
   return (
     <>
       {createPortal(
@@ -60,24 +74,7 @@ const CartList = () => {
                 </ListItem>
               </ul>
               {cartVisabilityCTX.displayCheckOut && <CheckOut />}
-              {!cartVisabilityCTX.displayCheckOut && (
-                <div className={classes["cart-actions"]}>
-                  <Button
-                    cartClose
-                    onClick={cartVisabilityCTX.toggleDisplayCart}
-                  >
-                    Close
-                  </Button>
-                  {hasItems && (
-                    <Button
-                      cartOrder
-                      onClick={cartVisabilityCTX.toggleDisplayCheckOut}
-                    >
-                      Order
-                    </Button>
-                  )}
-                </div>
-              )}
+              {!cartVisabilityCTX.displayCheckOut && modalActions}
             </Container>
           </div>
         </>,
